@@ -11,42 +11,68 @@
 
 [data name:"capitals" source:"us_state_capitals.json" /]
 
-[IdyllVegaLite data:states spec:`{
+[data name:"locations" source:"locationss.csv" /]
+
+// [IdyllVegaLite data:states spec:`{
+//  width: 800,
+//  height: 500,
+//  projection: {
+//    type: albersUsa
+//  },
+//  mark: {
+//    type: geoshape,
+//    fill: lightgray,
+//    stroke: white
+//  }
+// }` /]
+
+[IdyllVegaLite data:locations spec:`{
   width: 800,
   height: 500,
-  projection: {
-    type: albersUsa
-  },
-  mark: {
-    type: geoshape,
-    fill: lightgray,
-    stroke: white
-  }
+  background:"/static/images/usnation",
+  mark: "circle",
+  encoding: {
+          x: {
+            field: "long", type: "quantitative"
+         },
+         y: {
+            field: "lat", type: "quantitative"
+         },
+         color: {
+          value: "blue"}
+       }
 }` /]
 
-
-[IdyllVegaLite data:states spec:`{
-{
-  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
-  "width": 800,
-  "height": 500,
-  "projection": {
-    "type": "albersUsa"
-  },
-  "layer": [
-    {
-      "data": {
-        "url": "data/us-10m.json",
-        "format": {
-          "type": "topojson",
-          "feature": "states"
-        }
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": "lightgray",
-        "stroke": "white"
-      }
-    }
-    /]
+[IdyllVegaLite data:capitals spec:`{
+  width: 800,
+  height: 500,
+  background:"/static/images/us.svg",
+  mark: "circle",
+  encoding: {
+          x: {
+            field: "long", type: "quantitative"
+         },
+         y: {
+            field: "lat", type: "quantitative"
+         },
+         color: {
+          value: "blue"}
+       }
 }` /]
+
+//[IdyllVegaLite data:numberoone spec:`{
+//  mark: "line",
+//  encoding: {
+//   x: {
+//      field: "time",
+//      type: "temporal",
+//      axis: {title: "seconds", format: "%Y"}
+//    },
+//    y: {
+//      field: "numberoone",
+//      type: "quantitative",
+//      axis: {title: "ground level"},
+//      scale: { domain: [0, 0.1] }
+//    }
+//  }
+//}` /]
