@@ -1,10 +1,10 @@
-[meta title:"Tohoku" description:"Short description of your project" /]
+[meta title:"Tohoku" description:"yay" /]
 
 [Header
-  title:"Tohoku"
-  subtitle:"Welcome to Idyll. Open index.idyll to start writing"
-  author:"Your Name Here"
-  authorLink:"https://idyll-lang.org" /]
+  title:"Tohoku Earthquake"
+  subtitle:"Mapping the Effects of the 2011 Tohoku Earthquake from Seismic Stations"
+  author:"Elisha Yeonsoo Ham"
+  authorLink:"https://github.com/elisooh/Tohoku" /]
 
 
 [data name:"states" source:"us-10m.json" /]
@@ -43,22 +43,36 @@
        }
 }` /]
 
-[IdyllVegaLite data:capitals spec:`{
-  width: 800,
-  height: 500,
-  background:"/static/images/us.svg",
-  mark: "circle",
-  encoding: {
-          x: {
-            field: "long", type: "quantitative"
-         },
-         y: {
-            field: "lat", type: "quantitative"
-         },
-         color: {
-          value: "blue"}
-       }
-}` /]
+[data name:"trytry" source:"trytry.csv" /]
+
+####Data for Station A, at 27°03'54.0"N 98°40'58.8"W
+
+[Table data:trytry/]
+
+// TODO:
+// * get the json lat and longitudes loaded in the same
+//   way as the .csv file
+// * print number based on the slider (time)
+// * get the fluctuation points loaded for one location (then have slider update
+//   size/color of point)
+// * load for all 
+
+//[IdyllVegaLite data:capitals spec:`{
+//  width: 800,
+//  height: 500,
+//  background:"/static/images/us.svg",
+//  mark: "circle",
+//  encoding: {
+//          x: {
+//            field: "long", type: "quantitative"
+//         },
+//         y: {
+//            field: "lat", type: "quantitative"
+//         },
+//         color: {
+//          value: "yellow"}
+//       }
+//}` /]
 
 //[IdyllVegaLite data:numberoone spec:`{
 //  mark: "line",
@@ -76,3 +90,4 @@
 //    }
 //  }
 //}` /]
+// COLOR INTERACTIVE!
